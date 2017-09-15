@@ -1,0 +1,66 @@
+name: "MP1"
+files:
+  - "Winner"
+  - "Factorial"
+  - "QuizMaster"
+post: "https://cs125.cs.illinois.edu/grades"
+checkstyle:
+  name: "checkstyle Tests"
+  missing:
+    score: 0
+    message: "checkstyle failed to run"
+    name: "checkstyle"
+  selectors:
+    - selector: "count(//file/error) = 0"
+      score: 10
+      message: "No checkstyle errors were reported"
+      name: "checkstyle"
+    - selector: "count(//file/error) > 0"
+      score: 0
+      message: "checkstyle errors were reported"
+      name: "checkstyle"
+test:
+  name: "testNG Tests"
+  selectors:
+    - selector: "count(//testsuite[@name='FactorialTest']) = 1 and count(//testsuite[@name='FactorialTest']//failure) = 0"
+      score: 30
+      message: "No test failures in FactorialTest"
+      name: "FactorialTest"
+    - selector: "count(//testsuite[@name='FactorialTest']) = 1 and count(//testsuite[@name='FactorialTest']//failure) = 1"
+      score: 20
+      message: "Test failures in FactorialTest"
+      name: "FactorialTest"
+    - selector: "count(//testsuite[@name='FactorialTest']) = 1 and count(//testsuite[@name='FactorialTest']//failure) > 1"
+      score: 10
+      message: "Test failures in FactorialTest"
+      name: "FactorialTest"
+    - selector: "count(//testsuite[@name='FactorialTest']) = 0"
+      score: 0
+      message: "FactorialTest didn't compile"
+      name: "FactorialTest"
+    - selector: "count(//testsuite[@name='QuizMasterTest']) = 1 and count(//testsuite[@name='QuizMasterTest']//failure) = 0"
+      score: 30
+      message: "No test failures in QuizMasterTest"
+      name: "QuizMasterTest"
+    - selector: "count(//testsuite[@name='QuizMasterTest']) = 1 and count(//testsuite[@name='QuizMasterTest']//failure) > 0"
+      score: 10
+      message: "Test failures in QuizMasterTest"
+      name: "QuizMasterTest"
+    - selector: "count(//testsuite[@name='QuizMasterTest']) = 0"
+      score: 0
+      message: "QuizMasterTest didn't compile"
+      name: "QuizMasterTest"
+    - selector: "count(//testsuite[@name='WinnerTest']) = 1 and count(//testsuite[@name='WinnerTest']//failure) = 0"
+      score: 30
+      message: "No test failures in WinnerTest"
+      name: "WinnerTest"
+    - selector: "count(//testsuite[@name='WinnerTest']) = 1 and count(//testsuite[@name='WinnerTest']//failure) > 0"
+      score: 10
+      message: "Test failures in WinnerTest"
+      name: "WinnerTest"
+    - selector: "count(//testsuite[@name='WinnerTest']) = 0"
+      score: 0
+      message: "WinnerTest didn't compile"
+      name: "WinnerTest"
+
+# vim: ts=2:sw=2:et
