@@ -68,7 +68,8 @@ public class WinnerTest {
                 Assert.assertEquals(testResults.length, results.length,
                         "results is not the correct length");
                 for (int testIndex = 0; testIndex < Winner.SCORE_COUNT; testIndex++) {
-                    Assert.assertTrue(results[testIndex].equals(testResults[testIndex]));
+                    Assert.assertTrue(results[testIndex].trim()
+                            .equals(testResults[testIndex].trim()));
                 }
             }
         }
