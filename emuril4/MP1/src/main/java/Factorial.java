@@ -15,7 +15,7 @@ public final class Factorial {
      * Do not change this value.
      */
     public static final int FACTORIAL_MIN = 0;
-
+    
     /**
      * Maximum valid factorial input.
      * <p>
@@ -29,7 +29,7 @@ public final class Factorial {
      * Do not change this value.
      */
     public static final int FACTORIAL_INVALID = -1;
-
+    
     /**
      * Returns the factorial of a value.
      * <p>
@@ -43,8 +43,24 @@ public final class Factorial {
      * @return the factorial of input if it is valid, or FACTORIAL_INVALID if it is not.
      * @see <a href="https://en.wikipedia.org/wiki/Factorial">Factorial Definition</a>
      */
+    public static void (string [] args) { 
+    		Scanner input = new Scanner (System.in);
+    		
+    		System.out.println("Please input number:");
+    		n = input.nextInt(); )
+        int count = input; 
+        
+        while (count > 0) {
+        		count= count - 1;
+    		int product = 1; 
+    		int product = count * product;
+        }
+    }
+    
     public static int factorial(final int input) {
-        return FACTORIAL_INVALID;
+        if (input <= 0 || input > 20)
+    			return FACTORIAL_INVALID;
+       
     }
 
     /**********************************************************************************************
