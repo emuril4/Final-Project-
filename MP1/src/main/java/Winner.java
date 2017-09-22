@@ -26,7 +26,40 @@ public class Winner {
      */
     public static String winner(final int firstScore, final int secondScore, final int thirdScore) {
         // This is clearly incorrect
-        return "";
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        if (firstScore >= secondScore && firstScore >= thirdScore) {
+            a = firstScore;
+            if (secondScore >= thirdScore) {
+                b = secondScore;
+                c = thirdScore;
+            } else {
+                b = thirdScore;
+                c = secondScore;
+            }
+        }
+        if (secondScore >= firstScore && secondScore >= thirdScore) {
+            a = secondScore;
+            if (firstScore >= thirdScore) {
+                b = firstScore;
+                c = thirdScore;
+            } else {
+                b = thirdScore;
+                c = firstScore;
+            }
+        }
+        if (thirdScore >= secondScore && thirdScore >= firstScore) {
+            a = thirdScore;
+            if (secondScore >= firstScore) {
+                b = secondScore;
+                c = firstScore;
+            } else {
+                b = firstScore;
+                c = secondScore;
+            }
+        }
+        return a + ", " + b + ", " + c;
     }
 
     /**********************************************************************************************
