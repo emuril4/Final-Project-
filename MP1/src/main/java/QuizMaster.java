@@ -39,7 +39,43 @@ public final class QuizMaster {
     public static int computeScore(final int zipCode, final Boolean diversityAnswerCorrect,
             final Boolean illiacAnswerCorrect, final Boolean mosaicAnswerCorrect,
             final Boolean variableAnswerCorrect) {
-        return 0;
+    		
+    		//finalscore 
+    		int score = 0; 
+    		
+    		if (zipCode == 48109) { //Michigan zipcode
+    			if (diversityAnswerCorrect && illiacAnswerCorrect && mosaicAnswerCorrect && variableAnswerCorrect == true) { //if all true?
+    				System.out.print("100%"); //all answers correct 
+    			}
+    			else { 
+    				System.out.print("0%"); // no credit for trying, must receive 0%
+    				}
+			}
+    		if (zipCode == 61801) { //UIUC zipcode
+    			
+    			//sums up all the points (10 per question) for each question correctly answered 
+    			//keeps reseting the value for the score
+    			if (diversityAnswerCorrect == true) {
+    				score = score + 10; 
+    			}
+    			if (illiacAnswerCorrect == true) {
+    				score = score + 10; 
+    			}
+    			if (mosaicAnswerCorrect == true) {
+    				score = score + 10; 
+    			}
+    			if (variableAnswerCorrect == true) {
+    				score = score + 10; 
+    			}
+    			
+    			//adds 5 extra points if the score is 40 or under when added 
+    			if (score <= 35) { 
+    				score = score + 5; //extra credit 
+    			}
+    			
+    			System.out.print(score);
+    		}
+       
     }
 
     /**********************************************************************************************
