@@ -29,11 +29,50 @@ public class Winner {
     		int second = 0; 
     		int third = 0; 
     		
-    		if (firstScore == secondScore & firstScore == thirdScore & secondScore == thirdScore) { 
+    		if (firstScore == secondScore & firstScore == thirdScore & secondScore == thirdScore) { //if all are equal
     			first = firstScore; 
     			second = secondScore; 
     			third = thirdScore;
     		}
+    		
+    		if (firstScore == secondScore) { //if 1st and 2nd inputs are equal
+    			if (secondScore > thirdScore) { 
+    				first = thirdScore; 
+    				second = secondScore; 
+    				third = firstScore; 
+    			}
+    			if (secondScore < thirdScore) { 
+    				first = firstScore; 
+    				second = secondScore; 
+    				third = thirdScore; 
+    			}
+    		}
+    		if (secondScore == thirdScore) { //if 2nd and 3rd inputs are equal 
+    			if (firstScore > secondScore) { 
+    				first = secondScore; 
+    				second = thirdScore; 
+    				third = firstScore;
+    			}
+    			if (firstScore < secondScore) { 
+    				first = firstScore;  
+    				second = secondScore; 
+    				third = thirdScore;
+    			}
+    		}
+    		if (firstScore == thirdScore) { 
+    			if (secondScore > firstScore) { 
+    				first = firstScore; 
+    				second = thirdScore; 
+    				third = secondScore; 
+    			}
+    			if (secondScore < firstScore) { 
+    				first = secondScore; 
+    				second = firstScore;
+    				third = thirdScore; 
+    			}
+    		}
+    
+
     		
     		if (firstScore > secondScore & firstScore> thirdScore) {  // first number is the largest number
     			if (secondScore < thirdScore) { 
