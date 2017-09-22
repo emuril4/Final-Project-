@@ -43,24 +43,17 @@ public final class Factorial {
      * @return the factorial of input if it is valid, or FACTORIAL_INVALID if it is not.
      * @see <a href="https://en.wikipedia.org/wiki/Factorial">Factorial Definition</a>
      */
-    public static void (string [] args) { 
-    		Scanner input = new Scanner (System.in);
-    		
-    		System.out.println("Please input number:");
-    		n = input.nextInt(); )
-        int count = input; 
-        
-        while (count > 0) {
-        		count= count - 1;
-    		int product = 1; 
-    		int product = count * product;
-        }
-    }
     
     public static int factorial(final int input) {
-        if (input <= 0 || input > 20)
-    			return FACTORIAL_INVALID;
-       
+    		int numInput = input;
+		long total = 1; 
+		
+		if (numInput > 0 & numInput < 21) {
+			while (numInput > 0 & numInput < 21) { 
+				total = total * numInput; 
+				int numInput = numInput - 1; 
+		}
+		System.out.print(total);
     }
 
     /**********************************************************************************************
