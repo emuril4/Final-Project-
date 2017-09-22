@@ -45,19 +45,19 @@ public final class Factorial {
      */
 
     public static long factorial(final int input) {
-    		int numInput = input;
-		long total = 1;
+        int numInput = input;
+        long total = 1;
 
-		if (numInput < FACTORIAL_MIN || numInput > FACTORIAL_MAX ) {
-		    return FACTORIAL_INVALID ;
-		}
-		if (numInput > 0 && numInput < 21) {
-			while (numInput > 0 && numInput < 21) {
-				total = total * numInput;
-				numInput = numInput - 1;
-		}
-		}
-		return total;
+        if (numInput < FACTORIAL_MIN || numInput > FACTORIAL_MAX ) {
+            return FACTORIAL_INVALID ;
+        }
+        if (numInput > FACTORIAL_MIN && numInput <= FACTORIAL_MAX) {
+            while (numInput > FACTORIAL_MIN && numInput <= FACTORIAL_MAX) {
+                total = total * numInput;
+                numInput = numInput - 1;
+        }
+        }
+        return total;
     }
 
     /**********************************************************************************************
