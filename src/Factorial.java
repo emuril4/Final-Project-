@@ -50,8 +50,13 @@ public final class Factorial {
 		long total = 1; 
 		
 		System.out.println("numINput: " + numInput);
-		if (numInput < 1 || numInput > 20) { 
+		if (numInput < 0 || numInput > 20) { 
 			return FACTORIAL_INVALID; 
+		}
+		
+		if (numInput == 0) { 
+			total = 1; 
+			
 		}
 		
 		while (numInput > 0 & numInput < 21) { 
