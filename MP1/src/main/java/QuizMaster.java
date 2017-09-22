@@ -82,9 +82,8 @@ public final class QuizMaster {
     			    }
     			}
 
-
 		return score;
-    		}
+    }
 
 
 
