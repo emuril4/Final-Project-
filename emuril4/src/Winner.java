@@ -29,6 +29,29 @@ public class Winner {
     		int secondPlace = secondScore; 
     		int thirdPlace = thirdScore; 
     		
+    		if (firstPlace < secondScore & secondPlace < thirdPlace) { 
+    			firstPlace = firstPlace; 
+    			secondPlace = secondPlace; 
+    			thirdPlace = thirdPlace; 
+    		}
+    		
+    		if (firstPlace < secondPlace & thirdPlace < firstPlace) { 
+    			firstPlaceHolder = thirdPlace; 
+    			thirdPlace = firstPlace;
+    			firstPlace = thirdPlaceHolder; 
+    			secondPlace = secondPlace; 
+    		} 
+    		
+    		if (firstPlace > secondPlace & firstPlace < thirdPlace) { 
+    			secondPlaceHolder = firstPlace; 
+    			firstPlace = secondPlace; 
+    			secondPlace = secondPlaceHolder; 
+    			thirdPlace = thirdPlace; 
+    		} 
+    			
+    		
+    		/*
+    		
     		if (firstPlace < secondPlace & firstPlace < thirdPlace) { 
     			if (secondPlace < thirdPlace) { 
     				firstPlace = firstPlace; 
@@ -44,7 +67,7 @@ public class Winner {
     				}
     			}
     				
-			
+			*/ 
     		}
     		/*
     		
