@@ -48,8 +48,8 @@ public final class Factorial {
         int numInput = input;
         long total = 1;
 
-        if (numInput < FACTORIAL_MIN || numInput > FACTORIAL_MAX ) {
-            return FACTORIAL_INVALID ;
+        if (numInput < FACTORIAL_MIN || numInput > FACTORIAL_MAX) {
+            return FACTORIAL_INVALID;
         }
         if (numInput > FACTORIAL_MIN && numInput <= FACTORIAL_MAX) {
             while (numInput > FACTORIAL_MIN && numInput <= FACTORIAL_MAX) {
