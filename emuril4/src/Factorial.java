@@ -48,17 +48,20 @@ public final class Factorial {
     public static long factorial(final long input) {
         long numInput = input;
 		long total = 1; 
+		
+		System.out.println("numINput: " + numInput);
+		if (numInput < 1 || numInput > 20) { 
+			return FACTORIAL_INVALID; 
+		}
+		
 		while (numInput > 0 & numInput < 21) { 
 			
 			total = total * numInput; 
 			numInput = numInput - 1; 
 		}
-		if (numInput < 1) { 
-			return FACTORIAL_INVALID; 
-		}
-		if (numInput > 20) { 
-			return FACTORIAL_INVALID; 
-		}
+
+		
+	
 		return total;
        
     }
