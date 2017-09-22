@@ -50,29 +50,33 @@ public final class QuizMaster {
         // final score
         int score = 0;
         final int maxScore = 40;
+        final int fullPoints = 10;
+        final int extraCredit = 5;
+        final int zeroPoints = 0;
+        final int thirtyFive = 35;
 
         // sums up all the points (10 per question) for each question correctly answered
         // keeps reseting the value for the score
-        if (diversityAnswerCorrect == true) {
-            score = score + 10;
+        if (diversityAnswerCorrect) {
+            score = score + fullPoints;
         }
-        if (illiacAnswerCorrect == true) {
-            score = score + 10;
+        if (illiacAnswerCorrect) {
+            score = score + fullPoints;
         }
-        if (mosaicAnswerCorrect == true) {
-            score = score + 10;
+        if (mosaicAnswerCorrect) {
+            score = score + fullPoints;
         }
-        if (variableAnswerCorrect == true) {
-            score = score + 10;
+        if (variableAnswerCorrect) {
+            score = score + fullPoints;
         }
 
         // adds 5 extra points if the score is 40 or under when added
-        if (zipCode >= illinoisMin && zipCode <= illinoisMax && score <= 35) { // UIUC
-            score = score + 5; // extra credit
+        if (zipCode >= illinoisMin && zipCode <= illinoisMax && score <= thirtyFive) { // UIUC
+            score = score + extraCredit; // extra credit
         }
         if (zipCode >= michiganMin && zipCode <= michiganMax) { // Michigan
             if (score != maxScore) {
-                score = 0;
+                score = zeroPoints;
             } else {
                 if (score == maxScore) {
                     score = maxScore;

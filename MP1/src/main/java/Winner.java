@@ -10,7 +10,6 @@ import java.util.Scanner;
  * @see <a href="https://cs125.cs.illinois.edu/MP/1/">MP1 Documentation</a>
  */
 public class Winner {
-
     /**
      * Returns the three scores in descending order separated by commas.
      * <p>
@@ -24,6 +23,7 @@ public class Winner {
      * @param thirdScore an integer score.
      * @return the three scores in descending order as a comma-delimited string
      */
+
     public static String winner(final int firstScore, final int secondScore, final int thirdScore) {
         int a = 0;
         int b = 0;
