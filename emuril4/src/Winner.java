@@ -25,75 +25,58 @@ public class Winner {
      * @return the three scores in descending order as a comma-delimited string
      */
     public static String winner(final int firstScore, final int secondScore, final int thirdScore) {
-    		int firstPlace = firstScore;
-    		int secondPlace = secondScore; 
-    		int thirdPlace = thirdScore; 
+    		int first = 0; 
+    		int second = 0; 
+    		int third = 0; 
     		
-    		if (firstPlace < secondScore & secondPlace < thirdPlace) { 
-    			firstPlace = firstPlace; 
-    			secondPlace = secondPlace; 
-    			thirdPlace = thirdPlace; 
+    		if (firstScore == secondScore & firstScore == thirdScore & secondScore == thirdScore) { 
+    			first = firstScore; 
+    			second = secondScore; 
+    			third = thirdScore;
     		}
     		
-    		if (firstPlace < secondPlace & thirdPlace < firstPlace) { 
-    			firstPlaceHolder = thirdPlace; 
-    			thirdPlace = firstPlace;
-    			firstPlace = thirdPlaceHolder; 
-    			secondPlace = secondPlace; 
-    		} 
+    		if (firstScore > secondScore & firstScore> thirdScore) {  // first number is the largest number
+    			if (secondScore < thirdScore) { 
+    				first = secondScore; 
+    				second = thirdScore; 
+    				third = firstScore; 
+    			} else {
+    				first = thirdScore; 
+    				second = secondScore; 
+    				third = firstScore; 
+    			}
+    				
+    		}
     		
-    		if (firstPlace > secondPlace & firstPlace < thirdPlace) { 
-    			secondPlaceHolder = firstPlace; 
-    			firstPlace = secondPlace; 
-    			secondPlace = secondPlaceHolder; 
-    			thirdPlace = thirdPlace; 
-    		} 
+    		if (firstScore < secondScore & firstScore < thirdScore) { // first number is the smallest 
+    			if (secondScore < thirdScore) { 
+    				first = firstScore; 
+    				second = secondScore; 
+    				third = thirdScore; 
+    			} else { 
+    				first = firstScore; 
+    				second = thirdScore; 
+    				third = secondScore; 
+    			}
+    		}
+    		
+    		if (firstScore > secondScore & firstScore < thirdScore) { 
+    			first = secondScore; 
+    			second = firstScore; 
+    			third = thirdScore; 
     			
-    		
-    		/*
-    		
-    		if (firstPlace < secondPlace & firstPlace < thirdPlace) { 
-    			if (secondPlace < thirdPlace) { 
-    				firstPlace = firstPlace; 
-    				secondPlace = secondPlace; 
-    				thirdPlace = thirdPlace; 
-    				
-    			}
-    			if (firstPlace < secondPlace & thirdPlace < firstPlace) { 
-				int third_Place = thirdPlace; 
-				thirdPlace = firstPlace; 
-				firstPlace = third_Place; 
-    					
-    				}
-    			}
-    				
-			*/ 
     		}
-    		/*
     		
-        if (firstPlace > secondPlace) { 
-        		secondPlace = firstScore; 
-        		firstPlace = secondScore; 		
-        }
-        if (secondPlace > thirdScore) { 
-        		int third_Place = secondPlace; 
-        		secondPlace = thirdScore; 
-        		thirdPlace = third_Place; 
-        }
-    		if (firstPlace > thirdPlace) { 
-    			int third_3_Place = firstPlace; 
-    			firstPlace = thirdPlace; 
-    			thirdPlace = third_3_Place; 
-        	
-        }
-    		*/
-    	
+    		if (firstScore < secondScore & firstScore > thirdScore) { 
+    			first = thirdScore; 
+    			second = firstScore; 
+    			third = secondScore;
+    		}
     		
     		
     		
-        
-     //  if (secondPlace > 
-        return (firstPlace + ", " + secondPlace + ", " + thirdPlace);
+
+        return (first + ", " + second + ", " + third);
     }
 
     /**********************************************************************************************
