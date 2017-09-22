@@ -40,53 +40,48 @@ public final class QuizMaster {
             final Boolean illiacAnswerCorrect, final Boolean mosaicAnswerCorrect,
             final Boolean variableAnswerCorrect) {
 
-        /*
-        illinois min = 60000
-                max = 63000
-        michigan min = 48000
-                    max = 50000
-                    /*
 
-                     */
+         final int illinoisMin = 60000;
+         final int illinoisMax = 63000;
+         final int michiganMin = 48000;
+         final int michiganMax = 50000;
 
-    		//finalscore
-    		int score = 0;
 
-    			//sums up all the points (10 per question) for each question correctly answered
-    			//keeps reseting the value for the score
-    			if (diversityAnswerCorrect == true) {
-    				score = score + 10;
-    			}
-    			if (illiacAnswerCorrect == true) {
-    				score = score + 10;
-    			}
-    			if (mosaicAnswerCorrect == true) {
-    				score = score + 10;
-    			}
-    			if (variableAnswerCorrect == true) {
-    				score = score + 10;
-    			}
+        // final score
+        int score = 0;
+        final int maxScore = 40;
 
-    			//adds 5 extra points if the score is 40 or under when added
-    			if ( zipCode >= 60000 && zipCode <= 63000 && score <= 35) { //UIUC zipcode
-    				score = score + 5; //extra credit
-    			}
-    			if (zipCode >= 48000 &&zipCode <= 50000) { //Michigan zipcode
-    			    if (score != 40) {
-    			        score = 0;
-    			    }
-    			    else {
-    			        if (score == 40) {
-    			            score = 40;
-    			        }
-    			    }
-    			}
+        // sums up all the points (10 per question) for each question correctly answered
+        // keeps reseting the value for the score
+        if (diversityAnswerCorrect == true) {
+            score = score + 10;
+        }
+        if (illiacAnswerCorrect == true) {
+            score = score + 10;
+        }
+        if (mosaicAnswerCorrect == true) {
+            score = score + 10;
+        }
+        if (variableAnswerCorrect == true) {
+            score = score + 10;
+        }
 
-		return score;
+        // adds 5 extra points if the score is 40 or under when added
+        if (zipCode >= illinoisMin && zipCode <= illinoisMax && score <= 35) { // UIUC
+            score = score + 5; // extra credit
+        }
+        if (zipCode >= michiganMin && zipCode <= michiganMax) { // Michigan
+            if (score != maxScore) {
+                score = 0;
+            } else {
+                if (score == maxScore) {
+                    score = maxScore;
+                }
+            }
+        }
+
+        return score;
     }
-
-
-
 
     /**********************************************************************************************
      * You do not need to modify code below this comment.

@@ -25,7 +25,6 @@ public class Winner {
      * @return the three scores in descending order as a comma-delimited string
      */
     public static String winner(final int firstScore, final int secondScore, final int thirdScore) {
-        // This is clearly incorrect
         int a = 0;
         int b = 0;
         int c = 0;
