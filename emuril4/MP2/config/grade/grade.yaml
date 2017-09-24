@@ -1,0 +1,63 @@
+name: "MP2"
+files:
+  - "FindLine"
+  - "ScriptPrinter"
+  - "StrictPalindrome"
+reporting:
+  post: "https://cs125.cs.illinois.edu/grades"
+checkstyle:
+  name: "checkstyle Tests"
+  missing:
+    score: 0
+    message: "checkstyle failed to run"
+    name: "checkstyle"
+  selectors:
+    - selector: "count(//file/error) = 0"
+      score: 10
+      message: "No checkstyle errors were reported"
+      name: "checkstyle"
+    - selector: "count(//file/error) > 0"
+      score: 0
+      message: "checkstyle errors were reported"
+      name: "checkstyle"
+test:
+  name: "testNG Tests"
+  selectors:
+    - selector: "count(//testsuite[@name='FindLineTest']) = 1 and count(//testsuite[@name='FindLineTest']//failure) = 0"
+      score: 30
+      message: "No test failures in FindLineTest"
+      name: "FindLineTest"
+    - selector: "count(//testsuite[@name='FindLineTest']) = 1 and count(//testsuite[@name='FindLineTest']//failure) > 0"
+      score: 10
+      message: "Test failures in FindLineTest"
+      name: "FindLineTest"
+    - selector: "count(//testsuite[@name='FindLineTest']) = 0"
+      score: 0
+      message: "FindLineTest didn't compile"
+      name: "FindLineTest"
+    - selector: "count(//testsuite[@name='ScriptPrinterTest']) = 1 and count(//testsuite[@name='ScriptPrinterTest']//failure) = 0"
+      score: 30
+      message: "No test failures in ScriptPrinterTest"
+      name: "ScriptPrinterTest"
+    - selector: "count(//testsuite[@name='ScriptPrinterTest']) = 1 and count(//testsuite[@name='ScriptPrinterTest']//failure) > 0"
+      score: 10
+      message: "Test failures in ScriptPrinterTest"
+      name: "ScriptPrinterTest"
+    - selector: "count(//testsuite[@name='ScriptPrinterTest']) = 0"
+      score: 0
+      message: "ScriptPrinterTest didn't compile"
+      name: "ScriptPrinterTest"
+    - selector: "count(//testsuite[@name='StrictPalindromeTest']) = 1 and count(//testsuite[@name='StrictPalindromeTest']//failure) = 0"
+      score: 30
+      message: "No test failures in StrictPalindromeTest"
+      name: "StrictPalindromeTest"
+    - selector: "count(//testsuite[@name='StrictPalindromeTest']) = 1 and count(//testsuite[@name='StrictPalindromeTest']//failure) > 0"
+      score: 10
+      message: "Test failures in StrictPalindromeTest"
+      name: "StrictPalindromeTest"
+    - selector: "count(//testsuite[@name='StrictPalindromeTest']) = 0"
+      score: 0
+      message: "StrictPalindromeTest didn't compile"
+      name: "StrictPalindromeTest"
+
+# vim: ts=2:sw=2:et
