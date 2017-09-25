@@ -1,5 +1,6 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.net.URI;
+import java.security.InvalidParameterException;
 import java.util.Scanner;
 
 /**
@@ -69,9 +70,8 @@ public class ScriptPrinter {
      * not tested by the test suite, as it is purely to aid your own interactive testing.
      *
      * @param unused unused input arguments
-     * @throws FileNotFoundException exception if the text file cannot be located
      */
-    public static void main(final String[] unused) throws FileNotFoundException {
+    public static void main(final String[] unused) {
 
         String inputPrompt = String.format("Enter the name of an actress to print lines for:");
         Scanner lineScanner = new Scanner(System.in);
@@ -107,13 +107,18 @@ public class ScriptPrinter {
             }
             inputScanner.close();
 
-            ClassLoader classLoader = ScriptPrinter.class.getClassLoader();
-            File rentExcerptFile = new File(
-                    classLoader.getResource(INTERACTIVE_SCRIPT_FILE).getFile());
-
-            Scanner rentExcerptScanner = new Scanner(rentExcerptFile, "UTF-8");
-            String rentExcerpt = rentExcerptScanner.useDelimiter("\\A").next();
-            rentExcerptScanner.close();
+            String rentExcerpt;
+            try {
+                String rentExcerptPath = FindLine.class.getClassLoader()
+                        .getResource(INTERACTIVE_SCRIPT_FILE).getFile();
+                rentExcerptPath = new URI(rentExcerptPath).getPath();
+                File rentExcerptFile = new File(rentExcerptPath);
+                Scanner rentExcerptScanner = new Scanner(rentExcerptFile, "UTF-8");
+                rentExcerpt = rentExcerptScanner.useDelimiter("\\A").next();
+                rentExcerptScanner.close();
+            } catch (Exception e) {
+                throw new InvalidParameterException("Bad file path" + e);
+            }
 
             printLinesFor(actressName, rentExcerpt);
             break;
