@@ -109,7 +109,7 @@ public class ScriptPrinter {
 
             String rentExcerpt;
             try {
-                String rentExcerptPath = FindLine.class.getClassLoader()
+                String rentExcerptPath = ScriptPrinter.class.getClassLoader()
                         .getResource(INTERACTIVE_SCRIPT_FILE).getFile();
                 rentExcerptPath = new URI(rentExcerptPath).getPath();
                 File rentExcerptFile = new File(rentExcerptPath);
