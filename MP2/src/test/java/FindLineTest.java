@@ -48,7 +48,7 @@ public class FindLineTest {
             FindWordInStringInput input = precomputedResult.getKey();
             String[] expectedOutput = precomputedResult.getValue();
             FindLine.printMatchingLines(input.searchWord, input.contents);
-            String[] output = outContent.toString().split("\n");
+            String[] output = outContent.toString().split("\\R");
 
             /* Reset standard out. */
             System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
