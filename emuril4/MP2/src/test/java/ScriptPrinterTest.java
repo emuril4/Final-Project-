@@ -47,7 +47,7 @@ public class ScriptPrinterTest {
             PrintLinesForInput input = precomputedResult.getKey();
             String[] expectedOutput = precomputedResult.getValue();
             ScriptPrinter.printLinesFor(input.actress, input.contents);
-            String[] output = outContent.toString().split("\n");
+            String[] output = outContent.toString().split("\\R");
 
             /*
              * Apparently it is standard behavior for Java to split an empty string into a
