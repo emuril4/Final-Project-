@@ -1,5 +1,6 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.net.URI;
+import java.security.InvalidParameterException;
 import java.util.Scanner;
 
 /**
@@ -80,9 +81,8 @@ public class FindLine {
      * not tested by the test suite, as it is purely to aid your own interactive testing.
      *
      * @param unused unused input arguments
-     * @throws FileNotFoundException exception if the text file cannot be located
      */
-    public static void main(final String[] unused) throws FileNotFoundException {
+    public static void main(final String[] unused) {
 
         String inputPrompt = String.format("Enter an single word:");
         Scanner lineScanner = new Scanner(System.in);
@@ -118,13 +118,18 @@ public class FindLine {
             }
             inputScanner.close();
 
-            ClassLoader classLoader = FindLine.class.getClassLoader();
-            File billOfRightsFile = new File(
-                    classLoader.getResource(INTERACTIVE_TEXT_FILE).getFile());
-
-            Scanner billOfRightsScanner = new Scanner(billOfRightsFile, "UTF-8");
-            String billOfRights = billOfRightsScanner.useDelimiter("\\A").next();
-            billOfRightsScanner.close();
+            String billOfRights;
+            try {
+                String billOfRightsPath = FindLine.class.getClassLoader()
+                        .getResource(INTERACTIVE_TEXT_FILE).getFile();
+                billOfRightsPath = new URI(billOfRightsPath).getPath();
+                File billOfRightsFile = new File(billOfRightsPath);
+                Scanner billOfRightsScanner = new Scanner(billOfRightsFile, "UTF-8");
+                billOfRights = billOfRightsScanner.useDelimiter("\\A").next();
+                billOfRightsScanner.close();
+            } catch (Exception e) {
+                throw new InvalidParameterException("Bad file path" + e);
+            }
 
             printMatchingLines(searchTerm, billOfRights);
             break;
