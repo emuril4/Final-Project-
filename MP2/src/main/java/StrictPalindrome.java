@@ -22,22 +22,26 @@ public class StrictPalindrome {
      * Add the function declaration below and write this function. Call it isStrictPalindrome. It
      * should take a single String argument and return a boolean.
      *
-     * @param word the word to search for
+     * @param searchTerm the word to search for
      * @return whether the word is a strict palindrome or not
      */
     //public static void main
-    public static String isStrictPalindrome (String [] args) {
+
+    public static boolean isStrictPalindrome (String ) {
         boolean isPalindrome = false;
-        if ((word.length % 2) == 0) {
-            for (int i = 0; i < ((word.length/2) - 1); i++) {
-                if (word [i] != word [word.length - (i - 1)]) {
-                    return false;
+        String word = input;
+        char [] wordToArray = word.toCharArray();
+        while (!isPalindrome) {
+            if ((word.length()% 2) == 0) {
+            }
+                for (int i = 0; i < ((word.length()/2) - 1); i++) {
+                    if (wordToArray[i] != wordToArray [word.length() - (i - 1)]) {
+                        return false;
+                    }else {
+                        isPalindrome = true;
                 }
             }
         }
-
-
-
     }
 
     /**********************************************************************************************
@@ -60,7 +64,7 @@ public class StrictPalindrome {
     @SuppressWarnings("resource")
     public static void main(final String[] unused) {
 
-        String inputPrompt = String.format("Enter an single word to test as a palindrome:");
+        String inputPrompt = String.format("Enter a single word to test as a palindrome:");
         Scanner lineScanner = new Scanner(System.in);
 
         while (true) {
