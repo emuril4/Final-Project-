@@ -60,7 +60,7 @@ public class ScriptPrinter {
      * Complete the Javadoc comment and write this function.
      */
     public static void printLinesFor(final String actress, final String script) {
-        System.out.print("bonjour");
+        System.out.print();
     }
 
     /**********************************************************************************************
