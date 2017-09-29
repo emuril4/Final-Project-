@@ -11,10 +11,11 @@ import java.util.Scanner;
  */
 public class StrictPalindrome {
 
+
     /**
      * Determine if a word is a palindrome.
      * <p>
-     * Your function should use strict matching of characters, case, and whitspace. So, for example,
+     * Your function should use strict matching of characters, case, and whitespace. So, for example,
      * you should consider "A man, a plan, a cam, a yak, a yam, a canal – Panama!" to _not_ be a
      * palindrome, "ABba" to not be a palindrome, while "A-B-B-A" is a palindrome.
      * <p>
@@ -24,6 +25,20 @@ public class StrictPalindrome {
      * @param word the word to search for
      * @return whether the word is a strict palindrome or not
      */
+    //public static void main
+    public static String isStrictPalindrome (String [] args) {
+        boolean isPalindrome = false;
+        if ((word.length % 2) == 0) {
+            for (int i = 0; i < ((word.length/2) - 1); i++) {
+                if (word [i] != word [word.length - (i - 1)]) {
+                    return false;
+                }
+            }
+        }
+
+
+
+    }
 
     /**********************************************************************************************
      * You do not have to modify code below this comment.
@@ -36,9 +51,9 @@ public class StrictPalindrome {
      * You are free to review this function, but should not modify it. Note that this function is
      * not tested by the test suite, as it is purely to aid your own interactive testing.
      *
-     * Note that this function will not accept inputs that contain spaces, but your palindrome
+     * Note that this function will not accept inputs that contain spaces, but your pal__
      * function should handle them properly. If you consider this a limitation, feel free to modify
-     * the code below so that it accepts multi-word inputs.
+     * the code below so that it accepts multiple word inputs.
      *
      * @param unused unused input arguments
      */
