@@ -27,21 +27,30 @@ public class StrictPalindrome {
      */
     //public static void main
 
-    public static boolean isStrictPalindrome (String ) {
+    public static boolean isStrictPalindrome (String word ) {
         boolean isPalindrome = false;
-        String word = input;
         char [] wordToArray = word.toCharArray();
         while (!isPalindrome) {
-            if ((word.length()% 2) == 0) {
-            }
-                for (int i = 0; i < ((word.length()/2) - 1); i++) {
+            if ((word.length() % 2) == 0) {
+                for (int i = 0; i < ((word.length()/ 2) - 1); i++) {
                     if (wordToArray[i] != wordToArray [word.length() - (i - 1)]) {
-                        return false;
+                        isPalindrome = false;
                     }else {
                         isPalindrome = true;
                 }
             }
         }
+            else {
+                for (int i = 0; i< ((word.length() -1) /2); i++) {
+                    if (wordToArray[i] != wordToArray[word.length() -( i -1)]) {
+                        isPalindrome = false;
+                    }
+                    else {
+                        isPalindrome = true;
+                    }
+                }
+            }
+    }
     }
 
     /**********************************************************************************************
