@@ -18,6 +18,11 @@ public class ScriptPrinter {
      * during automated testing.
      */
     private static final String INTERACTIVE_SCRIPT_FILE = "Rent-Excerpt.txt";
+//if other character starts speaking print "-----"
+//place name of character on top ONLY ONCE
+//print line by line
+//DO NOT print stage directions that begin with "("
+
 
     /**
      * Prints lines from a script for a given actress (or actor).
@@ -55,7 +60,7 @@ public class ScriptPrinter {
      * Complete the Javadoc comment and write this function.
      */
     public static void printLinesFor(final String actress, final String script) {
-        return 0;
+        System.out.print("bonjour");
     }
 
     /**********************************************************************************************
@@ -63,7 +68,7 @@ public class ScriptPrinter {
      **********************************************************************************************/
 
     /**
-     * Solicits a single name from the user at the command line and searches for it in an exceprt
+     * Solicits a single name from the user at the command line and searches for it in an excerpt
      * from Rent (Rent-Excerpt.txt).
      * <p>
      * You are free to review this function, but should not modify it. Note that this function is
