@@ -1,0 +1,54 @@
+name: "MP3"
+files:
+  - "CaesarCipher"
+  - "CharDistribution"
+reporting:
+  post: "https://cs125.cs.illinois.edu/grades"
+notes:
+  "Note that the maximum local grade is 90/100. 10 points will be provided
+  during official grading if you have committed code that earns at least 20
+  points by Tuesday 10/3/2017 at 5PM."
+checkstyle:
+  name: "checkstyle Tests"
+  missing:
+    score: 0
+    message: "checkstyle failed to run"
+    name: "checkstyle"
+  selectors:
+    - selector: "count(//file/error) = 0"
+      score: 10
+      message: "No checkstyle errors were reported"
+      name: "checkstyle"
+    - selector: "count(//file/error) > 0"
+      score: 0
+      message: "checkstyle errors were reported"
+      name: "checkstyle"
+test:
+  name: "testNG Tests"
+  selectors:
+    - selector: "count(//testsuite[@name='CaesarCipherTest']) = 1 and count(//testsuite[@name='CaesarCipherTest']//failure) = 0"
+      score: 40
+      message: "No test failures in CaesarCipherTest"
+      name: "CaesarCipherTest"
+    - selector: "count(//testsuite[@name='CaesarCipherTest']) = 1 and count(//testsuite[@name='CaesarCipherTest']//failure) > 0"
+      score: 10
+      message: "Test failures in CaesarCipherTest"
+      name: "CaesarCipherTest"
+    - selector: "count(//testsuite[@name='CaesarCipherTest']) = 0"
+      score: 0
+      message: "CaesarCipherTest didn't compile"
+      name: "CaesarCipherTest"
+    - selector: "count(//testsuite[@name='CharDistributionTest']) = 1 and count(//testsuite[@name='CharDistributionTest']//failure) = 0"
+      score: 40
+      message: "No test failures in CharDistributionTest"
+      name: "CharDistributionTest"
+    - selector: "count(//testsuite[@name='CharDistributionTest']) = 1 and count(//testsuite[@name='CharDistributionTest']//failure) > 0"
+      score: 10
+      message: "Test failures in CharDistributionTest"
+      name: "CharDistributionTest"
+    - selector: "count(//testsuite[@name='CharDistributionTest']) = 0"
+      score: 0
+      message: "CharDistributionTest didn't compile"
+      name: "CharDistributionTest"
+
+# vim: ts=2:sw=2:et
