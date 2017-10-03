@@ -37,6 +37,10 @@ public class CharDistribution {
     /** Text of Hamlet. Used for interactive testing. */
     private static final String HAMLET_FILE = "Hamlet.txt";
 
+
+    public static char [] charDistributions (String [ ] ) {
+
+    }
     /**
      * Compare the character distributions in Rent.txt and Hamlet.txt.
      * <p>
