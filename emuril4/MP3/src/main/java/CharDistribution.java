@@ -38,7 +38,7 @@ public class CharDistribution {
     private static final String HAMLET_FILE = "Hamlet.txt";
 
 
-    public static char [] charDistributions (String [ ] ) {
+    public static char [] charDistributions (String []) {
 
     }
     /**
