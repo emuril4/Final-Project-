@@ -43,7 +43,7 @@ public class CaesarCipher {
     }
 
     /*
-     * Undoes the transformation performed by encrypt above. Add a Javadoc comment for this function
+     * Undoes the transformation performed by encrypt above. Add a Java document comment for this function
      * and complete it. It should also return a new character array, not modify the one passed in.
      */
     public static char[] decrypt(final char[] line, final int shift) {
