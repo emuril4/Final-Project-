@@ -38,8 +38,8 @@ public class CaesarCipher {
      *
      * @see <a href="http://www.asciitable.com/">ASCII Character Table</a>
      */
-    public static char[] encrypt(final char[] line, final int shift) {
-        return new String[0];
+    public static String [] encrypt(final char[] line, final int shift) {
+        return new String [3];
     }
 
     /*
@@ -47,7 +47,7 @@ public class CaesarCipher {
      * and complete it. It should also return a new character array, not modify the one passed in.
      */
     public static char[] decrypt(final char[] line, final int shift) {
-        return new String[0];
+        System.out.print(String.toCharAt [i]);
     }
 
     /**********************************************************************************************
