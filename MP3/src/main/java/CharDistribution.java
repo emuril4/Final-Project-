@@ -35,17 +35,17 @@ public class CharDistribution {
 
     public static double [] computeDistribution (final String words) {
         String [] array = words.split ("");
-        double [] show = new double [52];
+        double [] show = new double [52]; // 26 uppercase and 26 lowercase
         int total = 0;
         int i;
-        for (i = 0;i < words.length(); i++) {
+        for (i = 0;i < words.length(); i++) { //while less than the total number of chars in the given text/string
             if (array[i].charAt(0) >= 'A' && array[i].charAt(0) <='Z') {
                 show[array[i].charAt(0) - 'A' + 26] ++; // 26 letter are being added
                 total = total + 1;
             } else if (array[i].charAt(0) >= 'a' && array[i].charAt(0) <='z') {
                     show[array[i].charAt(0) - 'a'] ++; //don't add the 26 letters before cause these will appear
-                    total ++;
-        }
+                    total ++; //add to total to increment total count
+            }
         }
 
         for (int j = 0; j < show.length; j++) {

@@ -53,7 +53,7 @@ public class CaesarCipher {
                    shiftNum = ((c -32) + (shift % 95) + 32); // holds the value that you will be shifting in the positive direction
                }
                else {
-                  shiftNum = ((((c-32) + (shift % 95) + 95) % 95) +32); // the value when negative
+                  shiftNum = ((((c-32) + (shift % 95) + 95) % 95) +32); // the value when negative shift is input
                }
             }
             encrypted [i] = (char) shiftNum;
