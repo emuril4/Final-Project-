@@ -15,11 +15,25 @@ public class CaesarCipher {
     public static final int MIN_SHIFT = -1024;
 
     /** Maximum shift that encrypt and decrypt need to handle. */
+    /**
+     * @MAX_SHIFT : maximum number you can shift
+     */
+    // maximum shift that encrypt function can handle
     public static final int MAX_SHIFT = 1024;
-
-    public static final int start = 32;
-    public static final int difference = 95;
-    public static final int end = 126;
+    /**
+     * @start : the begining values
+     */
+    // where the character values begin
+    public static final int START = 32;
+    /**
+     * @difference : difference between the max and min
+     */
+    // the difference between 126 and 32
+    public static final int DIFFERENCE = 95;
+    /**
+     * @end : max char value
+     */
+    public static final int END = 126;
     /**
      * Encrypt a single line of text using a rotate-N transformation.
      * <p>
@@ -35,15 +49,20 @@ public class CaesarCipher {
      * defined above (e.g., larger than MAX_SHIFT), you should return null.
      * <p>
      * <strong>Your solution must match the expected output exactly, otherwise you will not receive
-     * credit.</strong>
+     * //* credit.</strong>
      * <p>
      * Complete the Javadoc comment for this function and write it.
      *
      * @see <a href="http://www.asciitable.com/">ASCII Character Table</a>
      */
+    /**
+     * @param line : text
+     * @param shift : the number of places to move the characters to encrypt
+     * @return : should return null or the characters shifted by the shift amount
+     */
     public static char[] encrypt(final char[] line, final int shift) {
         // if outside shift range return null
-        char [] encrypted = new char [line.length];
+        char[] encrypted = new char[line.length];
         if (shift > MAX_SHIFT || shift < MIN_SHIFT) {
             return null;
         }
@@ -51,25 +70,37 @@ public class CaesarCipher {
         int shiftNum = 0;
         for (int i = 0; i < line.length; i++) {
             char c = line[i];
-            if (c <= end && c >= start) { // bounds
-               if (shift > 0) {
-                   shiftNum = ((c -start) + (shift % difference) + start); // holds the value that you will be shifting in the positive direction
-               }
-               else {
-                  shiftNum = ((((c- start) + (shift % difference) + difference) % difference) + start); // the value when negative shift is input
-               }
+            if (c <= END && c >= START) { // bounds
+                if (shift > 0) {
+                    shiftNum = (((c - START) + (shift % DIFFERENCE)) + START);
+                    // holds the value that
+                    // you will be shifting
+                    // in the positive
+                    // direction
+                } else {
+                    shiftNum = ((((c - START) + (shift % DIFFERENCE)
+                            + DIFFERENCE)
+                            % DIFFERENCE)
+                            + START); // the value when negative shift is input
+                }
             }
-            encrypted [i] = (char) shiftNum;
+            encrypted[i] = (char) shiftNum;
         }
         return encrypted;
     }
 
     /*
-     * Undoes the transformation performed by encrypt above. Add a Java document comment for this function
-     * and complete it. It should also return a new character array, not modify the one passed in.
+     * Undoes the transformation performed by encrypt above. Add a Java document comment for this
+     * function and complete it. It should also return a new character array, not modify the one
+     * passed in.
+     */
+    /**
+     * @param line : text input
+     * @param shift : number by which encryption occurs
+     * @return : returns the original input
      */
     public static char[] decrypt(final char[] line, final int shift) {
-        return encrypt(line, - shift);
+        return encrypt(line, -shift);
     }
 
     /**********************************************************************************************
@@ -86,7 +117,7 @@ public class CaesarCipher {
      * @param unused unused input arguments
      */
     @SuppressWarnings("resource")
-    public static void main (final String[] unused) {
+    public static void main(final String[] unused) {
 
         String linePrompt = String.format("Enter a line of text, or a blank line to exit:");
         String shiftPrompt = String.format("Enter an integer to shift by:");
@@ -96,7 +127,7 @@ public class CaesarCipher {
          */
 
         Scanner lineScanner = new Scanner(System.in);
-        repeat: while (true) {
+        repeat : while (true) {
             String line = null;
             Integer shift = null;
 
@@ -139,37 +170,28 @@ public class CaesarCipher {
             char[] encryptedCharacterArray = encrypt(originalCharacterArray, shift);
             char[] decryptedCharacterArray;
 
-            if(encryptedCharacterArray != null) {
+            if (encryptedCharacterArray != null) {
                 decryptedCharacterArray = decrypt(encryptedCharacterArray, shift);
-                }
+            }
 
             System.out.println("Encrypted line with ROT-" + shift + ":");
             System.out.println("Original line:");
             System.out.println(String.valueOf(originalCharacterArray));
 
-
-//            if (decryptedCharacterArray != null) {
-//              decrypt(encryptedCharacterArray, shift);
-//            }
-
-            if(encryptedCharacterArray != null) {
+            if (encryptedCharacterArray != null) {
                 System.out.println(String.valueOf(encryptedCharacterArray));
-            }
-            else {
+            } else {
                 System.out.println("null");
             }
             System.out.println("Decrypted line:");
-            if(encryptedCharacterArray!= null) {
+            if (encryptedCharacterArray != null) {
                 decryptedCharacterArray = decrypt(encryptedCharacterArray, shift);
                 if (decryptedCharacterArray != null) {
                     System.out.println(String.valueOf(decryptedCharacterArray));
                 }
-
-            }
-            else {
+            } else {
                 System.out.println("null");
             }
-
         }
         lineScanner.close();
     }
