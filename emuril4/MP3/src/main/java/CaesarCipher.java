@@ -40,8 +40,8 @@ public class CaesarCipher {
      */
     public static char[] encrypt(final char[] line, final int shift) {
         // if outside shift range return null
-        char [] encrypted= new char [line.length];
-        if (shift < MAX_SHIFT || shift > MIN_SHIFT) {
+        char [] encrypted = new char [line.length];
+        if (shift > MAX_SHIFT || shift < MIN_SHIFT) {
             return null;
         }
 
@@ -83,7 +83,7 @@ public class CaesarCipher {
      * @param unused unused input arguments
      */
     @SuppressWarnings("resource")
-    public static void main(final String[] unused) {
+    public static void main (final String[] unused) {
 
         String linePrompt = String.format("Enter a line of text, or a blank line to exit:");
         String shiftPrompt = String.format("Enter an integer to shift by:");
@@ -91,6 +91,7 @@ public class CaesarCipher {
         /*
          * Two steps here: first get a line, then a shift integer.
          */
+
         Scanner lineScanner = new Scanner(System.in);
         repeat: while (true) {
             String line = null;
@@ -133,14 +134,39 @@ public class CaesarCipher {
 
             char[] originalCharacterArray = line.toCharArray();
             char[] encryptedCharacterArray = encrypt(originalCharacterArray, shift);
-            char[] decryptedCharacterArray = decrypt(encryptedCharacterArray, shift);
+            char[] decryptedCharacterArray;
+
+            if(encryptedCharacterArray != null) {
+                decryptedCharacterArray = decrypt(encryptedCharacterArray, shift);
+                }
 
             System.out.println("Encrypted line with ROT-" + shift + ":");
-            System.out.println(String.valueOf(encryptedCharacterArray));
             System.out.println("Original line:");
             System.out.println(String.valueOf(originalCharacterArray));
+
+
+//            if (decryptedCharacterArray != null) {
+//              decrypt(encryptedCharacterArray, shift);
+//            }
+
+            if(encryptedCharacterArray != null) {
+                System.out.println(String.valueOf(encryptedCharacterArray));
+            }
+            else {
+                System.out.println("null");
+            }
             System.out.println("Decrypted line:");
-            System.out.println(String.valueOf(decryptedCharacterArray));
+            if(encryptedCharacterArray!= null) {
+                decryptedCharacterArray = decrypt(encryptedCharacterArray, shift);
+                if (decryptedCharacterArray != null) {
+                    System.out.println(String.valueOf(decryptedCharacterArray));
+                }
+
+            }
+            else {
+                System.out.println("null");
+            }
+
         }
         lineScanner.close();
     }
