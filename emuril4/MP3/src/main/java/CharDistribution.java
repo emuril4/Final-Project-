@@ -21,6 +21,7 @@ import java.util.Scanner;
  * @see <a href="https://cs125.cs.illinois.edu/MP/3/">MP3 Documentation</a>
  * @see <a href="https://en.wikipedia.org/wiki/Letter_frequency">Letter frequency</a>
  */
+
 public class CharDistribution {
     /*
      * Take a single string argument. Return an array of doubles such that array[0] through
@@ -29,33 +30,48 @@ public class CharDistribution {
      * You'll want to review the ASCII character table carefully. Call this function
      * computeDistribution.
      */
-//ranges for letters both caps and lowercase
+    // ranges for letters both caps and lowercase
     // 65-90 = A-Z
     // 97-122 = a-z
+    /**
+     * @alphabet : 26 letters
+     */
+    public static final int ALPHABET = 26; // 26 letters
+    /**
+     * @totalLetters : Lowercase and upercase letters
+     */
+    public static final int TOTAL_LETTERS = 52; // 26 uppercase and 26 lowercase letters represented
 
-    public static double [] computeDistribution (final String words) {
-        String [] array = words.split ("");
-        double [] show = new double [52]; // 26 uppercase and 26 lowercase
+  //computes the number of letters of each type found
+    /**
+     *
+     * @param words : text input
+     * @return : returns array
+     */
+    public static double[] computeDistribution(final String words) {
+        String[] array = words.split("");
+        double[] show = new double[TOTAL_LETTERS]; // 26 uppercase and 26 lowercase
         int total = 0;
         int i;
-        for (i = 0;i < words.length(); i++) { //while less than the total number of chars in the given text/string
-            if (array[i].charAt(0) >= 'A' && array[i].charAt(0) <='Z') {
-                show[array[i].charAt(0) - 'A' + 26] ++; // 26 letter are being added
-                total = total + 1;
-            } else if (array[i].charAt(0) >= 'a' && array[i].charAt(0) <='z') {
-                    show[array[i].charAt(0) - 'a'] ++; //don't add the 26 letters before cause these will appear
-                    total ++; //add to total to increment total count
+        for (i = 0; i < words.length(); i++) { // while less than the total number of chars in the
+                                               // given text/string
+            if (array[i].charAt(0) >= 'A' && array[i].charAt(0) <= 'Z') {
+                show[array[i].charAt(0) - 'A' + ALPHABET]++; // 26 letter are being added
+                total++;
+            } else if (array[i].charAt(0) >= 'a' && array[i].charAt(0) <= 'z') {
+                show[array[i].charAt(0) - 'a']++; // don't add the 26 letters before cause these
+                                                  // will appear
+                total++; // add to total to increment total count
             }
         }
 
         for (int j = 0; j < show.length; j++) {
-            if (total > 0 ) {
-                show[j] = show[j]/total;
+            if (total > 0) {
+                show[j] = show[j] / total;
             }
         }
 
         return show;
-
 
     }
     /** Text of Rent. Used for interactive testing. */
@@ -63,7 +79,6 @@ public class CharDistribution {
 
     /** Text of Hamlet. Used for interactive testing. */
     private static final String HAMLET_FILE = "Hamlet.txt";
-
 
     //////////////////////////////// DO NOT TOUCH BELOW THIS LINE /////////////////////////////
     /**
