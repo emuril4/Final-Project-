@@ -29,7 +29,7 @@ public class CharDistribution {
      * You'll want to review the ASCII character table carefully. Call this function
      * computeDistribution.
      */
-
+//ranges for letters both caps and lowercase
     // 65-90 = A-Z
     // 97-122 = a-z
 
@@ -64,8 +64,6 @@ public class CharDistribution {
     /** Text of Hamlet. Used for interactive testing. */
     private static final String HAMLET_FILE = "Hamlet.txt";
 
-  //  public static char [] charDistributions (String []) {
-    //}
 
     //////////////////////////////// DO NOT TOUCH BELOW THIS LINE /////////////////////////////
     /**
