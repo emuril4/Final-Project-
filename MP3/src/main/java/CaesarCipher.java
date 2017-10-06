@@ -73,13 +73,10 @@ public class CaesarCipher {
             if (line[i] > END || line[i] < START) { // bounds
                 return null;
             }
-            if (shift > 0) {
+            if (shift > 0) { // shiftnum holds the value that you will be shifting in the positive
+                             // direction
                 shiftNum = ((c - START) % DIFFERENCE) + START;
-                // holds the value that
-                // you will be shifting
-                // in the positive
-                // direction
-            } else { //the value when negative shift is input
+            } else { // the value when negative shift is input
                 shiftNum = ((c - START + DIFFERENCE) % DIFFERENCE + START);
             }
 

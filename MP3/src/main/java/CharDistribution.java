@@ -42,9 +42,8 @@ public class CharDistribution {
      */
     public static final int TOTAL_LETTERS = 52; // 26 uppercase and 26 lowercase letters represented
 
-  //computes the number of letters of each type found
+    // computes the number of letters of each type found
     /**
-     *
      * @param words : text input
      * @return : returns array
      */
@@ -60,7 +59,7 @@ public class CharDistribution {
                 total++;
             } else if (array[i].charAt(0) >= 'a' && array[i].charAt(0) <= 'z') {
                 show[array[i].charAt(0) - 'a']++; // don't add the 26 letters before cause these
-                                                  // will appear
+                                                  // values are the first ones displayed
                 total++; // add to total to increment total count
             }
         }
