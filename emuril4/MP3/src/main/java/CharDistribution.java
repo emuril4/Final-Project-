@@ -31,6 +31,12 @@ public class CharDistribution {
      * computeDistribution.
      */
 
+    // 65-90 = A-Z
+    // 97-122 = a-z
+
+    public static double [] computeDistribution (String []) {
+
+    }
     /** Text of Rent. Used for interactive testing. */
     private static final String RENT_FILE = "Rent.txt";
 
