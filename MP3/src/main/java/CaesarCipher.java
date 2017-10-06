@@ -38,8 +38,27 @@ public class CaesarCipher {
      *
      * @see <a href="http://www.asciitable.com/">ASCII Character Table</a>
      */
-    public static String [] encrypt(final char[] line, final int shift) {
-        return new String [3];
+    public static char[] encrypt(final char[] line, final int shift) {
+        // if outside shift range return null
+        char [] encrypted= new char [line.length];
+        if (shift < MAX_SHIFT || shift > MIN_SHIFT) {
+            return null;
+        }
+
+        int shiftNum = 0;
+        for (int i = 0; i < line.length; i++) {
+            char c = line[i];
+            if (c <= 126 && c >= 32) { // bounds
+               if (shift > 0) {
+                   shiftNum = ((c -32) + (shift % 95) + 32); // holds the value that you will be shifting in the positive direction
+               }
+               else {
+                  shiftNum = ((((c-32) + (shift % 95) + 95) % 95) +32); // the value when negative
+               }
+            }
+            encrypted [i] = (char) shiftNum;
+        }
+        return encrypted;
     }
 
     /*
@@ -47,7 +66,7 @@ public class CaesarCipher {
      * and complete it. It should also return a new character array, not modify the one passed in.
      */
     public static char[] decrypt(final char[] line, final int shift) {
-        System.out.print(String.toCharAt [i]);
+        return encrypt(line, - shift);
     }
 
     /**********************************************************************************************
