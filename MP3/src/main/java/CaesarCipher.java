@@ -69,21 +69,20 @@ public class CaesarCipher {
 
         int shiftNum = 0;
         for (int i = 0; i < line.length; i++) {
-            char c = line[i];
-            if (c <= END && c >= START) { // bounds
-                if (shift > 0) {
-                    shiftNum = (((c - START) + (shift % DIFFERENCE)) + START);
-                    // holds the value that
-                    // you will be shifting
-                    // in the positive
-                    // direction
-                } else {
-                    shiftNum = ((((c - START) + (shift % DIFFERENCE)
-                            + DIFFERENCE)
-                            % DIFFERENCE)
-                            + START); // the value when negative shift is input
-                }
+            int c = (int) line[i] + (shift % DIFFERENCE);
+            if (line[i] > END || line[i] < START) { // bounds
+                return null;
             }
+            if (shift > 0) {
+                shiftNum = ((c - START) % DIFFERENCE) + START;
+                // holds the value that
+                // you will be shifting
+                // in the positive
+                // direction
+            } else { //the value when negative shift is input
+                shiftNum = ((c - START + DIFFERENCE) % DIFFERENCE + START);
+            }
+
             encrypted[i] = (char) shiftNum;
         }
         return encrypted;
