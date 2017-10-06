@@ -22,7 +22,6 @@ import java.util.Scanner;
  * @see <a href="https://en.wikipedia.org/wiki/Letter_frequency">Letter frequency</a>
  */
 public class CharDistribution {
-
     /*
      * Take a single string argument. Return an array of doubles such that array[0] through
      * array[25] are the fractions of characters for 'a-z' and array[26] through array[51] are the
@@ -34,7 +33,29 @@ public class CharDistribution {
     // 65-90 = A-Z
     // 97-122 = a-z
 
-    public static double [] computeDistribution (String []) {
+    public static double [] computeDistribution (final String words) {
+        String [] array = words.split ("");
+        double [] show = new double [52];
+        int total = 0;
+        int i;
+        for (i = 0;i < words.length(); i++) {
+            if (array[i].charAt(0) >= 'A' && array[i].charAt(0) <='Z') {
+                show[array[i].charAt(0) - 'A' + 26] ++; // 26 letter are being added
+                total = total + 1;
+            } else if (array[i].charAt(0) >= 'a' && array[i].charAt(0) <='z') {
+                    show[array[i].charAt(0) - 'a'] ++; //don't add the 26 letters before cause these will appear
+                    total ++;
+        }
+        }
+
+        for (int j = 0; j < show.length; j++) {
+            if (total > 0 ) {
+                show[j] = show[j]/total;
+            }
+        }
+
+        return show;
+
 
     }
     /** Text of Rent. Used for interactive testing. */
@@ -43,10 +64,10 @@ public class CharDistribution {
     /** Text of Hamlet. Used for interactive testing. */
     private static final String HAMLET_FILE = "Hamlet.txt";
 
+  //  public static char [] charDistributions (String []) {
+    //}
 
-    public static char [] charDistributions (String []) {
-
-    }
+    //////////////////////////////// DO NOT TOUCH BELOW THIS LINE /////////////////////////////
     /**
      * Compare the character distributions in Rent.txt and Hamlet.txt.
      * <p>
