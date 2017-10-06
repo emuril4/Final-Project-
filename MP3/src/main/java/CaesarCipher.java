@@ -17,6 +17,9 @@ public class CaesarCipher {
     /** Maximum shift that encrypt and decrypt need to handle. */
     public static final int MAX_SHIFT = 1024;
 
+    public static final int start = 32;
+    public static final int difference = 95;
+    public static final int end = 126;
     /**
      * Encrypt a single line of text using a rotate-N transformation.
      * <p>
@@ -48,12 +51,12 @@ public class CaesarCipher {
         int shiftNum = 0;
         for (int i = 0; i < line.length; i++) {
             char c = line[i];
-            if (c <= 126 && c >= 32) { // bounds
+            if (c <= end && c >= start) { // bounds
                if (shift > 0) {
-                   shiftNum = ((c -32) + (shift % 95) + 32); // holds the value that you will be shifting in the positive direction
+                   shiftNum = ((c -start) + (shift % difference) + start); // holds the value that you will be shifting in the positive direction
                }
                else {
-                  shiftNum = ((((c-32) + (shift % 95) + 95) % 95) +32); // the value when negative shift is input
+                  shiftNum = ((((c- start) + (shift % difference) + difference) % difference) + start); // the value when negative shift is input
                }
             }
             encrypted [i] = (char) shiftNum;
