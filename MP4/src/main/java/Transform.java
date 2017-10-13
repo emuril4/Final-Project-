@@ -40,7 +40,7 @@ public class Transform {
     public static int[][] shiftLeft(final int[][] originalImage, final int amount) {
         int[][] imageOne = new int[originalImage.length][originalImage[0].length];
         for (int i = 0; i < imageOne.length; i++) {
-            for (int j = 0; j < imageOne[0].length; j++) {
+            for (int j = 0; j < imageOne[i].length; j++) {
                 if (i + amount > (originalImage.length - 1)) {
                     imageOne[i][j] = FILL_VALUE;
                 } else {
@@ -62,7 +62,7 @@ public class Transform {
     public static int[][] shiftRight(final int[][] originalImage, final int amount) {
         int[][] imageOne = new int[originalImage.length][originalImage[0].length];
         for (int i = originalImage.length - 1; i == -1; i--) {
-            for (int j = 0; j < imageOne[0].length; j++) {
+            for (int j = 0; j < imageOne[i].length; j++) {
                 if (i - amount < 0) {
                     imageOne[i][j] = FILL_VALUE;
                 } else {
@@ -83,8 +83,8 @@ public class Transform {
     public static int[][] shiftUp(final int[][] originalImage, final int amount) {
         int[][] imageOne = new int[originalImage.length][originalImage[0].length];
         for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[0].length; j++) {
-                if (i + amount > (originalImage[0].length - 1)) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                if (i + amount > (originalImage[i].length - 1)) {
                     imageOne[i][j] = FILL_VALUE;
                 } else {
                     imageOne[i][j] = imageOne[i][j + amount];
@@ -103,7 +103,7 @@ public class Transform {
     public static int[][] shiftDown(final int[][] originalImage, final int amount) {
         int[][] imageOne = new int[originalImage.length][originalImage[0].length];
         for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[0].length; j++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
                 if (j < amount) {
                     imageOne[i][j] = FILL_VALUE;
                 } else {
