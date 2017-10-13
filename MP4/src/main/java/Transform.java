@@ -38,28 +38,80 @@ public class Transform {
      * @return the shifted image
      */
     public static int[][] shiftLeft(final int[][] originalImage, final int amount) {
-        return null;
+        int[][] imageOne = new int[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < imageOne.length; i++) {
+            for (int j = 0; j < imageOne[0].length; j++) {
+                if (i + amount > (originalImage.length - 1)) {
+                    imageOne[i][j] = FILL_VALUE;
+                } else {
+                    imageOne[i][j] = imageOne[i + amount][j];
+                }
+            }
+        }
+        return imageOne;
     }
 
-    /*
+    /**
      * Shift right like above.
+     *
+     * @param originalImage : the image input
+     * @param amount : amount to shift the original image right
+     * @return the image shifted right
      */
+
     public static int[][] shiftRight(final int[][] originalImage, final int amount) {
-        return null;
+        int[][] imageOne = new int[originalImage.length][originalImage[0].length];
+        for (int i = originalImage.length - 1; i == -1; i--) {
+            for (int j = 0; j < imageOne[0].length; j++) {
+                if (i - amount < 0) {
+                    imageOne[i][j] = FILL_VALUE;
+                } else {
+                    imageOne[i][j] = imageOne[i - amount][j];
+                }
+            }
+        }
+        return imageOne;
     }
 
     /**
      * Shift up like above.
+     * @param originalImage  image input
+     * @param amount  pixels to shift
+     * @return  image shifted up
      */
+
     public static int[][] shiftUp(final int[][] originalImage, final int amount) {
-        return null;
+        int[][] imageOne = new int[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[0].length; j++) {
+                if (i + amount > (originalImage[0].length - 1)) {
+                    imageOne[i][j] = FILL_VALUE;
+                } else {
+                    imageOne[i][j] = imageOne[i][j + amount];
+                }
+            }
+        }
+        return imageOne;
     }
 
     /**
      * Shift down like above.
+     * @param originalImage : image input
+     * @param amount : pixels to shift down
+     * @return : image shifted down
      */
     public static int[][] shiftDown(final int[][] originalImage, final int amount) {
-        return null;
+        int[][] imageOne = new int[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[0].length; j++) {
+                if (j < amount) {
+                    imageOne[i][j] = FILL_VALUE;
+                } else {
+                    imageOne[i][j] = imageOne[i][j - amount];
+                }
+            }
+        }
+        return imageOne;
     }
 
     /**
@@ -75,22 +127,32 @@ public class Transform {
         return null;
     }
 
-    /*
+    /**
      * Rotate the image right like above.
+     *
+     * @param originalImage : image input
+     * @return returns the rotated image
      */
+
     public static int[][] rotateRight(final int[][] originalImage) {
         return null;
     }
 
-    /*
+    /**
      * Flip the image on the vertical axis across its center.
+     *
+     * @param originalImage : image input
+     * @return : returns image flipped vertically
      */
+
     public static int[][] flipVertical(final int[][] originalImage) {
         return null;
     }
 
-    /*
-     * Flip the image on the horizontal axis across its center.
+    /**
+     * @param originalImage : image input
+     * @return : returns image flipped horizontally
+     *        Flip the image on the horizontal axis across its center.
      */
     public static int[][] flipHorizontal(final int[][] originalImage) {
         return null;
@@ -116,50 +178,73 @@ public class Transform {
         return null;
     }
 
-    /*
+    /**
      * Remove red from the image.
+     *
+     * @param originalImage the image to subtract red to
+     * @param amount the amount of red to subtract
+     * @return the recolored image
      */
     public static int[][] lessRed(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
-     * Add green to the image.
+    /**
+     * @param originalImage the image to add green to
+     * @param amount the amount of green to add
+     * @return the recolored image
+     *         Add green to the image.
      */
     public static int[][] moreGreen(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
-     * Remove green from the image.
+    /**
+     * @param originalImage the image to subtract green to
+     * @param amount the amount of green to subtract
+     * @return the recolored image
+     *         Remove green from the image.
      */
     public static int[][] lessGreen(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
-     * Add blue to the image.
+    /**
+     * @param originalImage the image to add blue to
+     * @param amount the amount of blue to add
+     * @return the recolored image
+     *         Add blue to the image.
      */
     public static int[][] moreBlue(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
-     * Remove blue from the image.
+    /**
+     * @param originalImage the image to subtract blue to
+     * @param amount the amount of blue to subtract
+     * @return the recolored image
+     *         Remove blue from the image.
      */
     public static int[][] lessBlue(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
+    /**
      * Increase the image alpha channel.
+     *
+     * @param originalImage : image input that will be altered
+     * @param amount : amount to alter
+     * @return : new image
      */
     public static int[][] moreAlpha(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
-     * Decrease the image alpha channel.
+    /**
+     * @param originalImage :
+     * @param amount :
+     *        Decrease the image alpha channel.
+     * @return the new image
      */
     public static int[][] lessAlpha(final int[][] originalImage, final int amount) {
         return null;
@@ -186,23 +271,33 @@ public class Transform {
         return null;
     }
 
-    /*
+    /**
      * Expand in the vertical axis around the image center.
+     *
+     * @param originalImage the image to expand
+     * @param amount the factor by which the image's height is increased
+     * @return the expanded image
      */
 
     public static int[][] expandVertical(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
-     * Shrink in the horizontal axis around the image center.
+    /**
+     * @param originalImage the image to shrink
+     * @param amount the factor by which the image's width is reduced
+     * @return the shrunken image
+     *         Shrink in the horizontal axis around the image center.
      */
     public static int[][] shrinkHorizontal(final int[][] originalImage, final int amount) {
         return null;
     }
 
-    /*
-     * Expand in the horizontal axis around the image center.
+    /**
+     * @param originalImage the image to expand
+     * @param amount the factor by which the image's width is expanded
+     * @return the expanded image
+     *         Expand in the horizontal axis around the image center.
      */
     public static int[][] expandHorizontal(final int[][] originalImage, final int amount) {
         return null;
@@ -238,4 +333,7 @@ public class Transform {
      * @param originalImage the image to perform a strange and interesting transform on
      * @return the image transformed in wooly and frightening ways
      */
+    public static int[][] mystery(final int[][] originalImage) {
+        return null;
+    }
 }
