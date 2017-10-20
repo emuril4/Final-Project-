@@ -46,9 +46,9 @@ public class Transform {
         }
         */
         int[][] imageOne = new int[originalImage.length][originalImage[0].length];
-        for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[i].length; j++) {
-                imageOne[i][j] = originalImage[i][(j + 1) % originalImage[i].length];
+        for (int i = 0; i < originalImage.length - 1; i++) {
+            for (int j = 0; j < originalImage[i].length - 1; j++) {
+                imageOne[i][j] = originalImage[i][(j - 1) % originalImage[i].length];
             }
         }
         return imageOne;
@@ -68,7 +68,7 @@ public class Transform {
     public static int[][] shiftRight(final int[][] originalImage, final int amount) {
         int[][] imageOne = new int[originalImage.length][originalImage[0].length];
         for (int i = originalImage.length - 1; i == -1; i--) {
-            for (int j = 0; j < imageOne[i].length; j++) {
+            for (int j = 0; j < imageOne[i].length - 1; j++) {
                 if (i - amount < 0) {
                     imageOne[i][j] = FILL_VALUE;
                 } else {
@@ -147,9 +147,9 @@ public class Transform {
      */
 
     public static int[][] rotateRight(final int[][] originalImage) {
-        int[][] rotateR = new int[originalImage[0].length][originalImage.length];
+        int[][] rotateR = new int[originalImage[0].length - 1][originalImage.length - 1];
         for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[i].length; j++) {
+            for (int j = 0; j < originalImage[0].length; j++) {
                 rotateR[i][j] = originalImage[j][i - rotateR.length - 1];
             }
         }
