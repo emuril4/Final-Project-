@@ -265,17 +265,15 @@ public class ConnectNTest {
          * Make sure that changing widths and heights resets N as needed.
          */
         Assert.assertEquals(board.getN(), 7);
-        Assert.assertTrue(board.setN(6), setBoardN);
-        Assert.assertEquals(board.getN(), 6, notSetCorrectly);
         Assert.assertTrue(board.setWidth(9));
         Assert.assertEquals(board.getWidth(), 9);
-        Assert.assertEquals(board.getN(), 6, invalidDimensionReset);
+        Assert.assertEquals(board.getN(), 7, invalidDimensionReset);
         Assert.assertTrue(board.setHeight(9));
         Assert.assertEquals(board.getHeight(), 9);
-        Assert.assertEquals(board.getN(), 6, invalidDimensionReset);
+        Assert.assertEquals(board.getN(), 7, invalidDimensionReset);
         Assert.assertTrue(board.setWidth(7));
         Assert.assertEquals(board.getWidth(), 7);
-        Assert.assertEquals(board.getN(), 6, invalidDimensionReset);
+        Assert.assertEquals(board.getN(), 7, invalidDimensionReset);
         Assert.assertTrue(board.setHeight(6));
         Assert.assertEquals(board.getHeight(), 6);
         Assert.assertEquals(board.getN(), 0, missingDimensionReset);
