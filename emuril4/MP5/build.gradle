@@ -19,7 +19,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.github.cs125-illinois:gradle:0.6'
+        classpath 'com.github.cs125-illinois:gradle:0.7'
     }
 }
 
