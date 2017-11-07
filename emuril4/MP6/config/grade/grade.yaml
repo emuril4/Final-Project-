@@ -44,35 +44,35 @@ test:
       score: 0
       message: "testCreate failed"
       name: "testCreate"
-    - selector: "count(//testcase[@name='testMinAndMax']) = 1 and count(//testcase[@name='testMinAndMax']//failure) = 0"
+    - selector: "count(//testcase[@name='testMinAndMax']) = 1 and count(//testcase[@name='testMinAndMax']//*[self::failure or self::skipped]) = 0"
       score: 10
       message: "testMinAndMax succeeded"
       name: "testMinAndMax"
-    - selector: "count(//testcase[@name='testMinAndMax']) = 1 and count(//testcase[@name='testMinAndMax']//failure) > 0"
+    - selector: "count(//testcase[@name='testMinAndMax']) = 1 and count(//testcase[@name='testMinAndMax']//*[self::failure or self::skipped]) > 0"
       score: 0
       message: "testMinAndMax failed"
       name: "testMinAndMax"
-    - selector: "count(//testcase[@name='testSearch']) = 1 and count(//testcase[@name='testSearch']//failure) = 0"
+    - selector: "count(//testcase[@name='testSearch']) = 1 and count(//testcase[@name='testSearch']//*[self::failure or self::skipped]) = 0"
       score: 10
       message: "testSearch succeeded"
       name: "testSearch"
-    - selector: "count(//testcase[@name='testSearch']) = 1 and count(//testcase[@name='testSearch']//failure) > 0"
+    - selector: "count(//testcase[@name='testSearch']) = 1 and count(//testcase[@name='testSearch']//*[self::failure or self::skipped]) > 0"
       score: 0
       message: "testSearch failed"
       name: "testSearch"
-    - selector: "count(//testcase[@name='testDepth']) = 1 and count(//testcase[@name='testDepth']//failure) = 0"
+    - selector: "count(//testcase[@name='testDepth']) = 1 and count(//testcase[@name='testDepth']//*[self::failure or self::skipped]) = 0"
       score: 10
       message: "testDepth succeeded"
       name: "testDepth"
-    - selector: "count(//testcase[@name='testDepth']) = 1 and count(//testcase[@name='testDepth']//failure) > 0"
+    - selector: "count(//testcase[@name='testDepth']) = 1 and count(//testcase[@name='testDepth']//*[self::failure or self::skipped]) > 0"
       score: 0
       message: "testDepth failed"
       name: "testDepth"
-    - selector: "count(//testcase[@name='testDescendants']) = 1 and count(//testcase[@name='testDescendants']//failure) = 0"
+    - selector: "count(//testcase[@name='testDescendants']) = 1 and count(//testcase[@name='testDescendants']//*[self::failure or self::skipped]) = 0"
       score: 10
       message: "testDescendants succeeded"
       name: "testDescendants"
-    - selector: "count(//testcase[@name='testDescendants']) = 1 and count(//testcase[@name='testDescendants']//failure) > 0"
+    - selector: "count(//testcase[@name='testDescendants']) = 1 and count(//testcase[@name='testDescendants']//*[self::failure or self::skipped]) > 0"
       score: 0
       message: "testDescendants failed"
       name: "testDescendants"
