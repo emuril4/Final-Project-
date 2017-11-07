@@ -1,0 +1,88 @@
+name: "MP6"
+files:
+  - "DNA"
+  - "ReverseList"
+  - "Tree"
+secure: config/security/security.policy
+reporting:
+  post: "https://cs125.cs.illinois.edu/grades"
+notes:
+  "Note that the maximum local grade is 90/100. 10 points will be provided
+  during official grading if you have committed code that earns at least 50
+  points by Monday 11/13/2017 at 5PM."
+checkstyle:
+  name: "checkstyle Tests"
+  missing:
+    score: 0
+    message: "checkstyle failed to run"
+    name: "checkstyle"
+  selectors:
+    - selector: "count(//file/error) = 0"
+      score: 10
+      message: "No checkstyle errors were reported"
+      name: "checkstyle"
+    - selector: "count(//file/error) > 0"
+      score: 0
+      message: "checkstyle errors were reported"
+      name: "checkstyle"
+test:
+  name: "testNG Tests"
+  selectors:
+    - selector: "count(//testsuite[@name='ReverseListTest']) = 1 and count(//testsuite[@name='ReverseListTest']//failure) = 0"
+      score: 10
+      message: "ReverseListTest succeeded"
+      name: "ReverseListTest"
+    - selector: "count(//testsuite[@name='ReverseListTest']) = 1 and count(//testsuite[@name='ReverseListTest']//failure) > 0"
+      score: 0
+      message: "ReverseListTest failed"
+      name: "ReverseListTest"
+    - selector: "count(//testcase[@name='testCreate']) = 1 and count(//testcase[@name='testCreate']//failure) = 0"
+      score: 10
+      message: "testCreate succeeded"
+      name: "testCreate"
+    - selector: "count(//testcase[@name='testCreate']) = 1 and count(//testcase[@name='testCreate']//failure) > 0"
+      score: 0
+      message: "testCreate failed"
+      name: "testCreate"
+    - selector: "count(//testcase[@name='testMinAndMax']) = 1 and count(//testcase[@name='testMinAndMax']//failure) = 0"
+      score: 10
+      message: "testMinAndMax succeeded"
+      name: "testMinAndMax"
+    - selector: "count(//testcase[@name='testMinAndMax']) = 1 and count(//testcase[@name='testMinAndMax']//failure) > 0"
+      score: 0
+      message: "testMinAndMax failed"
+      name: "testMinAndMax"
+    - selector: "count(//testcase[@name='testSearch']) = 1 and count(//testcase[@name='testSearch']//failure) = 0"
+      score: 10
+      message: "testSearch succeeded"
+      name: "testSearch"
+    - selector: "count(//testcase[@name='testSearch']) = 1 and count(//testcase[@name='testSearch']//failure) > 0"
+      score: 0
+      message: "testSearch failed"
+      name: "testSearch"
+    - selector: "count(//testcase[@name='testDepth']) = 1 and count(//testcase[@name='testDepth']//failure) = 0"
+      score: 10
+      message: "testDepth succeeded"
+      name: "testDepth"
+    - selector: "count(//testcase[@name='testDepth']) = 1 and count(//testcase[@name='testDepth']//failure) > 0"
+      score: 0
+      message: "testDepth failed"
+      name: "testDepth"
+    - selector: "count(//testcase[@name='testDescendants']) = 1 and count(//testcase[@name='testDescendants']//failure) = 0"
+      score: 10
+      message: "testDescendants succeeded"
+      name: "testDescendants"
+    - selector: "count(//testcase[@name='testDescendants']) = 1 and count(//testcase[@name='testDescendants']//failure) > 0"
+      score: 0
+      message: "testDescendants failed"
+      name: "testDescendants"
+    - selector: "count(//testsuite[@name='DNATest']) = 1 and count(//testsuite[@name='DNATest']//failure) = 0"
+      score: 20
+      message: "DNATest succeeded"
+      name: "DNATest"
+    - selector: "count(//testsuite[@name='DNATest']) = 1 and count(//testsuite[@name='DNATest']//failure) > 0"
+      score: 0
+      message: "DNATest failed"
+      name: "DNATest"
+
+# vim: ts=2:sw=2:et
